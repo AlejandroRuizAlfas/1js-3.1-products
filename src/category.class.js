@@ -6,4 +6,4 @@ class Category {
         this.description = description;
     }
 }
-module.exports = Category
+module.exports = Category;
