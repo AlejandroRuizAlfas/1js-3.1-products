@@ -67,18 +67,17 @@ class Store {
         if (prod.units < 0) {
             throw "No puedes crear un producto con unidades negativas";
         }
-        if(prod.units && isNaN(prod.units)){
-            throw "No puedes crear un producto con unidades no numericas"
+        if (prod.units && isNaN(prod.units)) {
+            throw "No puedes crear un producto con unidades no numericas";
         }
-        if(prod.units && !Number.isInteger(prod.units)){
-          throw "No puedes crear un producto si las unidades no son enteras"
+        if (prod.units && !Number.isInteger(prod.units)) {
+            throw "No puedes crear un producto si las unidades no son enteras";
         }
-        try{
-          this.getCategoryById(prod.category)
-        }catch(err){
-          throw "No puedes crear un producto cuya categoria no existe"
+        try {
+            this.getCategoryById(prod.category);
+        } catch (err) {
+            throw "No puedes crear un producto cuya categoria no existe";
         }
-    
 
         let newProduct = new Product(this.getNewId(this.products), prod.name, prod.category, prod.price, prod.units);
         this.products.push(newProduct);
